@@ -53,7 +53,7 @@ Enter full redirect url:
 
 
 When you get the prompt "Enter full redirect url:"
-Enter here the **redirect URL** from step 2, BUT WITHOUT THE LAST PART "&state=STATE"
+Enter here the **redirect URL** from step 2, but **WITHOUT** the last part `&state=STATE`
 
 The authorisation keys will be stored in the "nibeuplink.json" in the current directory. This will be used for the next time if you start the nibeuplink tool or the next code example.
 
