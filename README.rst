@@ -20,14 +20,12 @@ ______
 
 Info
 ____
-Thanks to Joakim for the Nibe Uplink API module:
-https://github.com/elupus/nibeuplink
+Thanks to Joakim for the Nibe Uplink API module: https://github.com/elupus/nibeuplink
 
 And thanks to David for the very good background information / howto page about how to use the Nibe Uplink API: 
 https://www.marshflattsfarm.org.uk/wordpress/?page_id=3480
 
 In this example where are also using his server for the callback URL, you can also put this script on your own server.
-
 
 
 Code example
