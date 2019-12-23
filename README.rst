@@ -23,11 +23,9 @@ Installing this lib
 ===================
 
 ```
-
-$ git clone https://github.com/wooni005/nibeuplink.git
-$ cd nibeuplink
-$ sudo pip3 install .
-
+git clone https://github.com/wooni005/nibeuplink.git
+cd nibeuplink
+sudo pip3 install .
 ```
 
 Authorisation
@@ -48,15 +46,11 @@ This **redirect URL** will be used in the next step!
 
 3 - Start the nibeuplink tool, which is alread installed above
 
-
 ```
-
-$ nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ'
+nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ'
 https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=XXX&redirect_uri=https%3A%2F%2Ffirm-ware.cz%2Foauth2callback%2Findex.php&scope=READSYSTEM&state=38bd51b4aedb446c9090b80bbdbbcbf0
 Enter full redirect url: 
-
 ```
-
 
 client_id:     NIBE Uplink API: Identifier
 client_secret: NIBE Uplink API: Secret
