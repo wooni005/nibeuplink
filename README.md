@@ -57,15 +57,11 @@ Enter here the **redirect URL** from step 2, BUT WITHOUT THE LAST PART "&state=S
 
 The authorisation keys will be stored in the "nibeuplink.json" in the current directory. This will be used for the next time if you start the nibeuplink tool or the next code example.
 
-Code example
-============
+## Code example
 
 Here is a working code example: https://github.com/wooni005/nibeuplink/blob/master/example.py
 
-
-
-Console
-=======
+## Command line
 
 The module contains a commandline tool to test and request data from Nibe Uplink called ``nibeuplink``, it will store token information in a file in the current directory called nibeuplink.json
 
