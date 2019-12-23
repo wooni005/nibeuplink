@@ -45,9 +45,12 @@ $ nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ'
 https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=XXX&redirect_uri=https%3A%2F%2Ffirm-ware.cz%2Foauth2callback%2Findex.php&scope=READSYSTEM&state=38bd51b4aedb446c9090b80bbdbbcbf0
 Enter full redirect url: 
 ```
-* client_id:     NIBE Uplink API: Identifier
-* client_secret: NIBE Uplink API: Secret
-* redirect_uri:  NIBE Uplink API: Callback URL
+* client_id:
+NIBE Uplink API: Identifier
+* client_secret:
+NIBE Uplink API: Secret
+* redirect_uri:
+NIBE Uplink API: Callback URL
 
 
 When you get the prompt `Enter full redirect url:`
