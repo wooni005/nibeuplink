@@ -67,16 +67,12 @@ Here is a working code example: https://github.com/wooni005/nibeuplink/blob/mast
 Console
 =======
 
-The module contains a commandline utility to test and request data from Nibe Uplink called ``nibeuplink``, it will store token information in a file in the current directory called nibeuplink.json
+The module contains a commandline tool to test and request data from Nibe Uplink called ``nibeuplink``, it will store token information in a file in the current directory called nibeuplink.json
 
-Example
-_______
+## Nibeuplink tool examples
 
 Help for utility
 
-.. code-block:: bash
-
-    
 ``` $ nibeuplink -h```
 
 Request all systems
