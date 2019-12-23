@@ -46,10 +46,15 @@ https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=XXX&redi
 Enter full redirect url: 
 ```
 * client_id:
+
    NIBE Uplink API: Identifier
+
 * client_secret:
+
    NIBE Uplink API: Secret
+
 * redirect_uri:
+
    NIBE Uplink API: Callback URL
 
 
