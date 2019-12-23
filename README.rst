@@ -18,6 +18,15 @@ ______
 .. image:: https://coveralls.io/repos/github/elupus/nibeuplink/badge.svg?branch=master
     :target: https://coveralls.io/github/elupus/nibeuplink?branch=master
 
+Thanks to David for the very good background information / howto page about how to use the Nibe Uplink API: 
+https://www.marshflattsfarm.org.uk/wordpress/?page_id=3480
+
+In this example where are also using his server for the callback URL, you can also put this script on your own server.
+
+And thanks to Joakim for the Nibe Uplink API module:
+https://github.com/elupus/nibeuplink
+
+
 
 Example
 _______
@@ -32,9 +41,9 @@ _______
         pass
 
     async def run():
-        async with nibeuplink.Uplink(client_id         = 'XXX',
-                                     client_secret     = 'YYY',
-                                     redirect_uri      = 'ZZZ',
+        async with nibeuplink.Uplink(client_id         = 'XXX',  # NIBE Uplink API: Identifier
+                                     client_secret     = 'YYY',  # NIBE Uplink API: Secret
+                                     redirect_uri      = 'ZZZ',  # NIBE Uplink API: Callback URL
                                      access_data       = token_read(),
                                      access_data_write = token_write,
                                      scope             = 'READSYSTEM') as uplink:
