@@ -19,7 +19,8 @@ https://www.marshflattsfarm.org.uk/wordpress/?page_id=3480
 
 In this example where are also using his server for the callback URL, you can also put this script on your own server.
 
-
+Code example
+___________
 Here is a working code example: https://github.com/wooni005/nibeuplink/blob/master/example.py
 
 
