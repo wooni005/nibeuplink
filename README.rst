@@ -28,51 +28,77 @@ https://github.com/elupus/nibeuplink
 
 
 
-Example
+Code example
 _______
 
 .. code-block:: python
 
 
-    def token_read():
+#!/usr/bin/python3
+
+import asyncio
+import json
+
+import nibeuplink
+
+STORE = "nibeuplink.json"
+CLIENT_ID = "12345"
+
+def token_read():
+    try:
+        with open(STORE, "r") as myfile:
+            return json.load(myfile)
+    except FileNotFoundError:
         return None
 
-    def token_write(token):
-        pass
 
-    async def run():
-        async with nibeuplink.Uplink(client_id         = 'XXX',  # NIBE Uplink API: Identifier
-                                     client_secret     = 'YYY',  # NIBE Uplink API: Secret
-                                     redirect_uri      = 'ZZZ',  # NIBE Uplink API: Callback URL
-                                     access_data       = token_read(),
-                                     access_data_write = token_write,
-                                     scope             = 'READSYSTEM') as uplink:
-
-            if not uplink.access_data:
-                auth_uri = uplink.get_authorize_url()
-                print(auth_uri)
-                result = input('Enter full redirect url: ')
-                await uplink.get_access_token(uplink.get_code_from_url(result))
-
-            # Request all systems
-            print(uplink.get_systems())
+def token_write(token):
+    with open(STORE, "w") as myfile:
+        json.dump(token, myfile, indent=2)
 
 
-            # Request data for specific system
-            print(uplink.get_system(12345))
+async def run():
 
-            # Request data for parameters. Note request them in paralell using gather semantics
-            # that way, the module with batch up the requests into a single request to api 
-            print(await asyncio.gather(uplink.get_parameter(12345, 11111),
-                                       uplink.get_parameter(12345, 22222)))
+    scope = ["READSYSTEM"]
+
+    async with nibeuplink.UplinkSession(
+        client_id='XXX',     # NIBE Uplink API: Identifier
+        client_secret='YYY', # NIBE Uplink API: Secret
+        redirect_uri='ZZZ',  # NIBE Uplink API: Callback URL
+        access_data=token_read(),
+        access_data_write=token_write,
+        scope=scope,
+    ) as session:
+
+        if not session.access_data:
+            auth_uri = session.get_authorize_url()
+            print(auth_uri)
+            result = input("Enter full redirect url: ")
+            await session.get_access_token(session.get_code_from_url(result))
+
+        uplink = nibeuplink.Uplink(session)
+
+        todo = []
+        todo.extend( # Get outdoor temp
+            [uplink.get_parameter(DEFAULT_CLIENT_ID, "40004")]
+        )
+        todo.extend( # Get compressor starts
+            [uplink.get_parameter(DEFAULT_CLIENT_ID, "43416")]
+        )
+
+        if not len(todo):
+            todo.extend([uplink.get_system(DEFAULT_CLIENT_ID)])
+
+        res = await asyncio.gather(*todo)
+        for a in res:
+            try:
+                print(json.dumps(a, indent=1))
+            except TypeError:
+                print(a)
 
 
-
-
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete (run())
-
-
+loop = asyncio.get_event_loop()
+loop.run_until_complete(run())
 
 
 Console
@@ -102,8 +128,8 @@ Request data for specific system
 
     nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ' --system 12345
 
-Request data for parameters
+Request data for outside temp
 
 .. code-block:: bash
 
-    nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ' --system 12345 --parameter 11111 22222
+    nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ' --system 12345 --parameter 40004
