@@ -28,17 +28,17 @@ Read this first: https://www.marshflattsfarm.org.uk/wordpress/?page_id=3480
 
 ### In short
 
-Step 1 - Register your application on: https://api.nibeuplink.com/
+**Step 1** - Register your application on: https://api.nibeuplink.com/
     You can use for callback URL: https://firm-ware.cz/oauth2callback/index.php
 
-Step 2 - Get an Authorization Code, fill in your Nibe Uplink API Identifier instead of **[Identifier]**
+**Step 2** - Get an Authorization Code, fill in your Nibe Uplink API Identifier instead of **[Identifier]**
 `https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=[Identifier]&scope=READSYSTEM&redirect_uri=https://firm-ware.cz/oauth2callback/index.php&state=STATE`
 
 You will be redirected to `https://firm-ware.cz/oauth2callback/index.php?code=.......`
 
 This **redirect URL** will be used in the next step!
 
-Step 3 - Start the nibeuplink tool, which is already installed above
+**Step 3** - Start the nibeuplink tool, which is already installed above
 
 ```
 $ nibeuplink --client_id 'XXX' --client_secret 'YYY' --redirect_uri 'ZZZ'
@@ -46,11 +46,11 @@ https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=XXX&redi
 Enter full redirect url: 
 ```
 * client_id:
-NIBE Uplink API: Identifier
+   NIBE Uplink API: Identifier
 * client_secret:
-NIBE Uplink API: Secret
+   NIBE Uplink API: Secret
 * redirect_uri:
-NIBE Uplink API: Callback URL
+   NIBE Uplink API: Callback URL
 
 
 When you get the prompt `Enter full redirect url:`
