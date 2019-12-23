@@ -33,8 +33,8 @@ Read this first: https://www.marshflattsfarm.org.uk/wordpress/?page_id=3480
 Step 1 - Register your application on: https://api.nibeuplink.com/
     You can use for callback URL: https://firm-ware.cz/oauth2callback/index.php
 
-Step 2 - Get an Authorization Code, fill in your Nibe Uplink API Identifier instead of the bold [Identifier]
-https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=**[Identifier]**&scope=READSYSTEM&redirect_uri=https://firm-ware.cz/oauth2callback/index.php&state=STATE
+Step 2 - Get an Authorization Code, fill in your Nibe Uplink API Identifier instead of **[Identifier]**
+`https://api.nibeuplink.com/oauth/authorize?response_type=code&client_id=[Identifier]&scope=READSYSTEM&redirect_uri=https://firm-ware.cz/oauth2callback/index.php&state=STATE`
 
 You will be redirected to `https://firm-ware.cz/oauth2callback/index.php?code=.......`
 
